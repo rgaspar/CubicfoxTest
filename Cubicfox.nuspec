@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Cubicfox.Test.Solution</id>
+    <version>1.0.0</version>
+    <title>Cubicfox Test Solution</title>
+    <authors>Richard Gaspar</authors>
+    <description>Cubicfox.Test.Solution for .NET 9.</description>
+    <projectUrl> https://github.com/rgaspar/CubicfoxTest.git</projectUrl>
+    <repository type="git" url="https://github.com/rgaspar/CubicfoxTest.git" branch="main" />
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>clean-architecture csharp dotnet</tags>
+    <readme>README.md</readme>
+
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+
+  </metadata>
+
+  <files>
+    <file src="README.md" />
+  </files>
+
+</package>
