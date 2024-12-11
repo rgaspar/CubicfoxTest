@@ -57,9 +57,6 @@ public class TimerLogController : BaseController
     [HttpPut(Name = "UpdateTimeLog")]
     public async Task<IActionResult> UpdateTimeLog(UpdateTimeLogRequest request, CancellationToken token)
     {
-        var zenquotes = await _zenquotesService.GetAsync(token);
-        request.Description = zenquotes.Description;
-        
         var result = await _timeLogService.UpdateAsync(request, token);
         return Ok(result);
         
