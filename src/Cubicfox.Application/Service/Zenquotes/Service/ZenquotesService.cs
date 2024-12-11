@@ -20,7 +20,7 @@ public class ZenquotesService : IZenquotesService
         try
         {
             var client = _httpClientFactory.CreateClient("ZenquotesAPI");
-            var response = await client.GetAsync($"random");
+            var response = await client.GetAsync($"random", token);
 
             if (response.IsSuccessStatusCode)
             {
