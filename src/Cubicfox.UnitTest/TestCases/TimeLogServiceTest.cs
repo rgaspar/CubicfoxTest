@@ -7,7 +7,6 @@ using Cubicfox.Domain.Common.Repository.TimeLogsRepository;
 using Cubicfox.Domain.Common.Request.TimeLog;
 using Cubicfox.Domain.Common.Response.TimeLog;
 using Cubicfox.Domain.Entities;
-using Cubicfox.Persistence.Context;
 using Cubicfox.UnitTest.Helper;
 using Moq;
 
