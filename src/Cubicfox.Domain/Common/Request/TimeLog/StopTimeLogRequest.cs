@@ -2,7 +2,7 @@
 
 namespace Cubicfox.Domain.Common.Request.TimeLog;
 
-public abstract class StopTimeLogRequest
+public class StopTimeLogRequest(Guid id)
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = id;
 }

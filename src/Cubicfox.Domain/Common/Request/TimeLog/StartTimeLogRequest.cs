@@ -2,7 +2,7 @@
 
 namespace Cubicfox.Domain.Common.Request.TimeLog;
 
-public abstract class StartTimeLogRequest(string description)
+public class StartTimeLogRequest(string description)
 {
     public string Description { get; set; } = description;
 

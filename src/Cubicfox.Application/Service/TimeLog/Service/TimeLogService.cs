@@ -34,6 +34,7 @@ public class TimeLogService(IUnitOfWork unitOfWork, ITimeLogRepository timeLogRe
 
     public async Task<TimeLogResponse> StartAsync(StartTimeLogRequest request, CancellationToken token)
     {
+        var r = await timeLogRepository.AllTimeLogIsStopped(token);
         if (await timeLogRepository.AllTimeLogIsStopped(token) != null)
         {
             throw new CubicfoxException("A timer is already running", "A timer is already running");

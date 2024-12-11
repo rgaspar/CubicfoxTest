@@ -2,10 +2,10 @@
 
 namespace Cubicfox.Domain.Common.Request.TimeLog;
 
-public abstract class UpdateTimeLogRequest
+public class UpdateTimeLogRequest(Guid id, string description)
 {
-    public Guid Id { get; set; }
-    public string Description { get; set; }
+    public Guid Id { get; set; } = id;
+    public string Description { get; set; } = description;
     
     public static Entities.TimeLog ToModel(Guid id, string description)
     {

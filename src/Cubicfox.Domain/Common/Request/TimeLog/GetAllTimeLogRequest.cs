@@ -1,9 +1,9 @@
 ﻿namespace Cubicfox.Domain.Common.Request.TimeLog;
 
-public abstract class GetAllTimeLogRequest
+public class GetAllTimeLogRequest(DateTime startDate, DateTime endDate, int pageIndex, int pageSize)
 {
-    public DateTime? StartDate { get; set; }
-    public DateTime? EndDate { get; set; }
-    public int PageIndex { get; set; }
-    public int PageSize { get; set; }
+    public DateTime? StartDate { get; set; } = startDate;
+    public DateTime? EndDate { get; set; } = endDate;
+    public int PageIndex { get; set; } = pageIndex;
+    public int PageSize { get; set; } = pageSize;
 }
