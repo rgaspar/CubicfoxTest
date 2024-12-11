@@ -10,4 +10,8 @@
       <ProjectReference Include="..\Cubicfox.Domain\Cubicfox.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Service\" />
+    </ItemGroup>
+
 </Project>
