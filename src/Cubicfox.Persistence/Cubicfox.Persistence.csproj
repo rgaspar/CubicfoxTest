@@ -7,6 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools"/>
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+    </ItemGroup>
+  
+    <ItemGroup>
       <ProjectReference Include="..\Cubicfox.Domain\Cubicfox.Domain.csproj" />
     </ItemGroup>
 
