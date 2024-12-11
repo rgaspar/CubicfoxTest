@@ -10,5 +10,6 @@ public enum ErrorCode
     Other = 5,
     Unauthorized = 6,
     Internal = 0,
-    UnprocessableEntity = 8
+    UnprocessableEntity = 8,
+    Zenquote = 9
 }
