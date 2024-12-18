@@ -1,11 +1,11 @@
 ﻿USE [master]
 GO
 
-IF DB_ID('cubicfoxdb') IS NOT NULL
-  set noexec on 
-
-CREATE DATABASE [cubicfoxdb];
-GO
+IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'cubicfoxd')
+BEGIN
+    CREATE DATABASE [cubicfoxd]
+END
+GO 
 
 USE [cubicfoxdb]
 GO

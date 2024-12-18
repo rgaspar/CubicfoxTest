@@ -42,6 +42,12 @@ In such a way `docker-db-init` starts MS SQL Server, creates the datababase.
 
 Job's done. You have you database, you can create more databses in `cubicfox-db-init.sql`.
 
+### Usage
+
+Access the API via:
+
+- Docker: `http://localhost:3001/swagger/index.html`
+
 ## Main Features
 
 - [x] One should use .NET 9 Web API project (do not use minimal API, use Controllers)
