@@ -9,6 +9,39 @@ already stopped. When starting the timer, default description should be random q
 from https://zenquotes.io/ api. Time logs can also be deleted. The estimated implementation time for
 the solution is 3-8 hours.
 
+## Start
+The main docker compose file is in root directory of a repository.
+First one has to create local network:
+
+```
+docker network create cubicfoxnetwork
+```
+To start Backend using `docker-compose` (see more: https://docs.docker.com/compose/) command:
+
+```
+docker-compose up --build
+``` 
+Read more: https://docs.microsoft.com/pl-pl/dotnet/architecture/microservices/multi-container-microservice-net-applications/multi-container-applications-docker-compose
+
+To stop container, use
+```
+docker-compose down
+```
+
+In this way you are starting 3 containers:
+- cubicfox-api
+- cubicfox-sqlserver
+
+`cubicfox-api` is Web API container, that serves Web API;
+It depends on `cubicfox-sqlserver` - we've used MS SQL Server 2022 Image (mcr.microsoft.com/mssql/server:2022-latest).
+
+All work for creating databases done in `docker-entrypoint.sh`, which starts MS SQL server and executes script from `cubicfox-db-init.sql` using
+`/db-init.sh & /opt/mssql/bin/sqlservr`.
+
+In such a way `docker-db-init` starts MS SQL Server, creates the datababase.
+
+Job's done. You have you database, you can create more databses in `cubicfox-db-init.sql`.
+
 ## Main Features
 
 - [x] One should use .NET 9 Web API project (do not use minimal API, use Controllers)

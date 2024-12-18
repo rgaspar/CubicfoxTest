@@ -33,8 +33,8 @@ var app = builder.Build();
 
 using var loggerFactory = LoggerFactory.Create(builder => { });
 var serviceScope = app.Services.CreateScope();
-//var dataContext = serviceScope.ServiceProvider.GetService<CubicfoxTestContext>();
-//dataContext?.Database.EnsureCreated();
+var dataContext = serviceScope.ServiceProvider.GetService<CubicfoxTestContext>();
+dataContext?.Database.EnsureCreated();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

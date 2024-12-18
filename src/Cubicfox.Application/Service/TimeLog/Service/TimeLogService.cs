@@ -17,7 +17,7 @@ public class TimeLogService(IUnitOfWork unitOfWork, ITimeLogRepository timeLogRe
         var timeLogs = await timeLogRepository.ToPagination(
             pageIndex: request.PageIndex,
             pageSize: request.PageSize,
-            filter: x => x.StartDate >= request.StartDate && x.EndDate <= request.EndDate,
+            filter: x => x.StartDate >= request.StartDate && (x.EndDate <= request.EndDate || !x.EndDate.HasValue),
             orderBy: x => x.Id,
             ascending: true,
             selector: x => TimeLogResponse.FromModel(x)

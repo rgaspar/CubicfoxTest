@@ -1,0 +1,52 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: "3.4"
+
+services:
+  api:
+    container_name: cubicfox-api
+    depends_on:
+      sqlserver:
+        condition: service_started
+    ports:
+      - "3001:8080"
+    networks:
+      - cubicfoxnetwork
+    build:
+      context: .
+      dockerfile: src/Cubicfox/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=docker
+  sqlserver:
+    container_name: cubicfox-sqlserver
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1433:1433"
+    networks:
+      - cubicfoxnetwork
+    command: /bin/bash ./entrypoint.sh
+    environment:
+      MSSQL_SA_PASSWORD: "MyPass@word"
+      ACCEPT_EULA: "Y"
+      MSSQL_USER: "sa"
+    volumes:
+      - ./docker-entrypoint.sh:/entrypoint.sh
+      - ./docker-db-init.sh:/db-init.sh
+      - ./cubicfox-db-init.sql:/cubicfox-db-init.sql
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P MyPass@word -No -Q 'SELECT 1' || exit 1"
+        ]
+      interval: 10s
+      retries: 10
+      start_period: 10s
+      timeout: 3s
+      
+volumes:
+  app_data:
+    
+networks:
+  cubicfoxnetwork:
+    external: true    
